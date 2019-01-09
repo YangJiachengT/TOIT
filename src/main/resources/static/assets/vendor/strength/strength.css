@@ -1,0 +1,45 @@
+@charset "utf-8";
+/* CSS Document */
+
+.strength_meter{
+	height:23px;
+	width: 154px;
+	backgroud:transparent;
+}
+.strength_meter div{
+	height:23px;
+	width:100%;
+	height:23px;
+	text-align:center;
+	color:black;
+	weight:bold;
+	line-height:23px;
+}
+.veryweak{
+/* 	background-color: #FFA0A0; */
+	color: red;
+	border-color: #F04040!important;
+	width:25%!important;
+	padding-top: 7px;
+}
+.weak{
+/* background-color: #FFB78C; */
+color: #ffc107;
+border-color: #FF853C!important;
+width:50%!important;
+padding-top: 7px;
+}
+.medium{
+/* background-color: #FFEC8B; */
+color: #0062cc;
+border-color: #FC0!important;
+width:75%!important;
+padding-top: 7px;
+}
+.strong{
+/* background-color: #C3FF88; */
+color: #28a745;
+border-color: #8DFF1C!important;
+width:100%!important;
+padding-top: 7px;
+}

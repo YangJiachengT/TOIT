@@ -1,0 +1,88 @@
+/***************************首页**************************************************************/
+.list-alarm .alarm-item-checkbox {
+  float: left;
+  width: 30px;
+}
+.list-alarm .alarm-done {
+  background-color: #f3f7f9;
+}
+.list-alarm .alarm-done.list-group-item span {
+  text-decoration: line-through;
+}
+.list-alarm .alarm-done.list-group-item .label {
+  text-decoration: none;
+}
+.list-alarm .list-group-item-success {
+  background-color: rgba(17, 194, 109, .1);
+}
+
+.list-alarm .list-group-item-info {
+  background-color: rgba(11, 178, 212, .1);
+}
+
+.list-alarm .list-group-item-warning {
+  background-color: rgba(235, 103, 9, .1);
+}
+
+.list-alarm .list-group-item-danger {
+  background-color: rgba(255, 76, 82, .1);
+}
+/*******************add by lu 20180329  用于列表显示***************************/
+th{
+	font-weight ：800;
+}
+.pull-right{
+	float:right!important
+}
+
+.fixed-table-toolbar .btn-default{
+	color:#76838f;background-color:transparent
+}
+/*************************************************************************/
+
+/*******************add by lu 20180329  用于附件上传图片显示***************************/
+/* .clearfix:after { */
+/* 	display: block; */
+/* 	clear: both; */
+/* 	content: ""; */
+/* 	visibility: hidden; */
+/* 	height: 0; */
+/* } */
+
+/* .clearfix { */
+/* 	zoom: 1; */
+/* } */
+/***********************add by lu 2018-08-29 图片文字居中显示**********************************/
+
+.img_wd {
+	background: url(/assets/images/upload.png) top center no-repeat;
+	width: 135px;
+	height: 135px;
+	line-heiht: 135px;
+	padding-top: 40%;
+	text-align: center;
+}
+
+/***************************快速入口**************************************************************/
+.items {
+  width: 100%;
+}
+
+.slider {
+  margin: 0 25px 30px;
+  text-align: center;
+}
+
+.slider h3 {
+  position: relative;
+  padding: 10px;
+  margin: 0 10px;
+  font-size: 36px;
+  line-height: 100px;
+  background: #f3f7f9;
+}
+
+
+
+
+

@@ -1,0 +1,7 @@
+.dashboard .card {
+  height: calc(100% - 30px);
+}
+
+.dashboard .card-block {
+  border-radius: 3px;
+}

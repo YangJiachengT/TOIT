@@ -1,0 +1,26 @@
+.view-aside {
+	left: 20px;
+	position: absolute;
+	top: 91px;
+	bottom: 0;
+	width: 300px;
+	overflow-y: hidden;
+	border-right: 1px solid #e4eaec;
+	transition: visibility .1s ease, top .3s ease, left .5s ease, right .5s
+		ease;
+}
+
+.view-main {
+	margin-left: 310px;
+}
+
+.name {
+	text-align: right;
+	font-weight: 600;
+	font-size: 12px
+}
+
+.value {
+	text-align: left;
+	font-size: 13px
+}
