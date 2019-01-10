@@ -1,3 +1,5 @@
+<%@page import="cn.liu.constant.AppConstant"%>
+<%@page import="cn.liu.po.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
@@ -46,6 +48,11 @@
 						<a class="dropdown-item" href="javascript:void(0)" role="menuitem"><i
 							class="icon wb-power" aria-hidden="true"></i> Logout</a>
 					</div></li>
+				<li class="nav-item hidden-float">
+					<div class="navbar-brand navbar-brand-center site-gridmenu-toggle">
+						<span class="navbar-brand-text hidden-xs-down"><%=((User) session.getAttribute(AppConstant.SESSION_USER)).getUserRealName()%></span>
+					</div>
+				</li>
 				<li class="nav-item dropdown"><a class="nav-link"
 					data-toggle="dropdown" href="javascript:void(0)"
 					title="Notifications" aria-expanded="false"
@@ -106,7 +113,7 @@
 						class="site-menu-icon wb-table" aria-hidden="true"></i>课程管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
 						href="/admin/course/type"> <span class="site-menu-title">课程</span>
-					</a></li>	
+					</a></li>
 				</ul>
 			</div>
 		</div>
