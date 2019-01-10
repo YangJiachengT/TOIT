@@ -51,7 +51,7 @@
 					title="Notifications" aria-expanded="false"
 					data-animation="scale-up" role="button"> <i
 						class="icon wb-bell" aria-hidden="true"></i> <span
-						class="badge badge-pill badge-danger up">5</span>
+						class="badge badge-pill badge-danger up">1</span>
 				</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-media"
 						role="menu">
@@ -71,9 +71,9 @@
 													aria-hidden="true"></i>
 											</div>
 											<div class="media-body">
-												<h6 class="media-heading">A new order has been placed</h6>
+												<h6 class="media-heading">请完善你的个人信息</h6>
 												<time class="media-meta"
-													datetime="2018-06-12T20:50:48+08:00">5 hours ago</time>
+													datetime="2018-06-12T20:50:48+08:00">1 second ago</time>
 											</div>
 										</div>
 									</a>
@@ -105,11 +105,8 @@
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-table" aria-hidden="true"></i>课程管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
-						href="#"> <span class="site-menu-title">开班</span>
-					</a></li>
-					<li class="site-menu-item is-shown"><a class="animsition-link"
-						href="#"> <span class="site-menu-title">开班</span>
-					</a></li>
+						href="/admin/course/type"> <span class="site-menu-title">课程</span>
+					</a></li>	
 				</ul>
 			</div>
 		</div>

@@ -1,134 +1,131 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-	pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>Admin|cou_type</title>
+<title>Admin | cou_type</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <base>
 <%@ include file="/include/common-css.jsp"%>
 </head>
 
-<body>
-	<%@ include file="/include/page-header.jsp"%>
-	<div class="main">
-		<%@ include file="/include/page-nav.jsp"%>
-		<div class="table-main">
-			<ul class="uk-breadcrumb">
-				<li><a href="#">首页 </a></li>
-				<li><a href="#">课程管理</a></li>
-				<li><a href="#">开班</a></li>
-			</ul>
-			<div class="uk-overflow-auto" style="margin-top: 30px">
-				<table id="dataTable" class="" data-toggle="table"
-					data-pagination="true" data-url="/course/couTypeList"
-					data-content-type="application/x-www-form-urlencoded"
-					data-method="get" data-show-columns="true" data-show-refresh="true"
-					data-page-number="1" data-page-size="10"
-					data-page-list="[10, 20, 50]" data-striped="true"
-					data-search="true" data-toolbar="#toolbar">
-					<thead>
-						<tr>
-							<th data-width="60px" data-formatter="serialNumGen"
-								data-align="center">#</th>
-							<th data-field="course_code" data-sortable="true">课程代码</th>
-							<th data-field="course_name" data-sortable="true">课程名</th>
-							<th data-field="classNum" data-sortable="true" data-align="center">开班数</th>
-							<th data-width="200px" data-align="center"
-								data-formatter="actionFormatter">操作</th>
-						</tr>
-					</thead>
-				</table>
-			</div>
-
+<body class="animsition dashboard">
+	<%@ include file="/include/page-nav.jsp"%>
+	<!-- Page -->
+	<div class="page">
+		<div class="page-header">
+			<ol class="breadcrumb">
+				<li class="breadcrumb-item"><a href="javascript:void(0)">一级</a></li>
+				<li class="breadcrumb-item active">二级</li>
+			</ol>
 		</div>
-		<a class="side-icon " uk-tooltip="添加课程 " href="#modal-overflow"
-			uk-toggle> <span uk-icon="icon:plus;ratio: 1.5"></span></a>
 
-
-		<div id="modal-overflow" uk-modal>
-			<div class="uk-modal-dialog">
-
-				<button class="uk-modal-close-default" type="button" uk-close></button>
-
-				<div class="uk-modal-header">
-					<h2 class="uk-modal-title">添加课程</h2>
+		<div class="page-content">
+			<div class="panel">
+				<div class="panel-heading">
+					<h3 class="panel-title"></h3>
 				</div>
-
-				<div class="uk-modal-body" uk-overflow-auto>
-					<form action="">
-						<div class="form-group row">
-							<label class="col-md-3 form-control-label" for="name">课程代码：
-								<span class="required" style="color: red;">*</span>
-							</label>
-							<div class="col-md-9">
-								<input type="text" value="" class="form-control"
-									name="courseCode" placeholder="请输入课程代码" />
-							</div>
-						</div>
-						<div class="form-group row">
-							<label class="col-md-3 form-control-label" for="name">课程名：
-								<span class="required" style="color: red;">*</span>
-							</label>
-							<div class="col-md-9">
-								<input type="text" value="" class="form-control"
-									name="courseName" placeholder="请输入课程名称" />
-							</div>
-						</div>
-						<div class="uk-text-right">
-							<div class="form-group">
-								<button class="uk-button uk-button-default uk-modal-close"
-									type="reset">取消</button>
-
-								<button class="uk-button uk-button-primary" type="button"
-									name="submit" id="submitBtn">保存</button>
-
-							</div>
-						</div>
-					</form>
+				<div class="panel-body">
+					<table id="dataTable" class="" data-toggle="table"
+						data-pagination="true" data-url="/course/couTypeList"
+						data-content-type="application/x-www-form-urlencoded"
+						data-method="get" data-show-columns="true"
+						data-show-refresh="true" data-page-number="1" data-page-size="10"
+						data-page-list="[10, 20, 50]" data-striped="true"
+						data-search="true" data-toolbar="#toolbar">
+						<thead>
+							<tr>
+								<th data-width="60px" data-formatter="serialNumGen"
+									data-align="center">#</th>
+								<th data-field="course_code" data-sortable="true">课程代码</th>
+								<th data-field="course_name" data-sortable="true">课程名</th>
+								<th data-field="classNum" data-sortable="true"
+									data-align="center">开班数</th>
+								<th data-width="200px" data-align="center"
+									data-formatter="actionFormatter">操作</th>
+							</tr>
+						</thead>
+					</table>
 				</div>
+			</div>
+		</div>
 
+	</div>
+	<!-- End Page -->
 
+	<!-- site-action -->
+	<div class="site-action">
+		<a href="javascript:void(0)" data-toggle="modal"
+			data-target="#myModal">
+			<button type="button"
+				class="site-action-toggle btn-raised btn btn-success btn-floating">
+				<i class="front-icon wb-plus animation-scale-up" aria-hidden="true"></i>
+			</button>
+		</a>
+	</div>
+
+	<!-- Modal -->
+	<div class="bootbox modal fade" id="myModal" tabindex="-1"
+		role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="bootbox-close-button close"
+						data-dismiss="modal" aria-hidden="true">×</button>
+					<h4 class="modal-title">添加课程</h4>
+				</div>
+				<div class="modal-body">
+					<div class="bootbox-body">
+						<form class="form-horizontal">
+							<div class="form-group row">
+								<label class="col-md-3 form-control-label" for="name">课程代码：
+									<span class="required" style="color: red;">*</span>
+								</label>
+								<div class="col-md-9">
+									<input type="text" value="" class="form-control"
+										name="courseCode" placeholder="请输入课程代码" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-md-3 form-control-label" for="name">课程名：
+									<span class="required" style="color: red;">*</span>
+								</label>
+								<div class="col-md-9">
+									<input type="text" value="" class="form-control"
+										name="courseName" placeholder="请输入课程名称" />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button data-bb-handler="success" type="button"
+						data-dismiss="modal" aria-hidden="true" class="btn btn-default">取消</button>
+					<button data-bb-handler="success" type="button"
+						class="btn btn-success" id="submitBtn">保存</button>
+				</div>
 			</div>
 		</div>
 	</div>
+	<!-- Footer -->
+	<footer class="site-footer">
+	<div class="site-footer-legal">
+		© 2019 <a href="#">学生素质测评系统TOIT</a>
+	</div>
+	<div class="site-footer-right">
+		Crafted with by <a href="#">Liu</a>
+	</div>
+	</footer>
 </body>
 <%@ include file="/include/common-js.jsp"%>
 <script>
-	//设置导航栏高度
-	function setNavHeight() {
-		var headerHeight = $("header").height();
-		var navHeight = $(document.body).height() - headerHeight + 'px';
-		$(".nav-main").css({
-			"height" : navHeight,
-			"margin-top" : headerHeight
-		})
-	}
-	//设置表格位置
-	function setTablePosition() {
-		var headerHeight = $("header").height();
-		var navWidth = $(".nav-main").width();
-		var top = headerHeight + 60 + 'px';
-		var left = navWidth + 150 + 'px';
-		$(".table-main").css({
-			"padding-top" : top,
-			"padding-left" : left
-		})
-	}
-	//监听页面加载事件
-	$(document).ready(function() {
-		setNavHeight();
-		setTablePosition();
-		$(document.body).css("opacity", 1);
-		//监听窗口变化事件
-		$(window).resize(function() {
-			setNavHeight();
-			setTablePosition();
-		});
-	})
+$(document).ready(function() {
+	//弹框初始化
+	alertify.delay(1000);
+});
 </script>
 <script>
 	$(function() {
@@ -178,24 +175,14 @@
 	              .then(function (response) {
 	            	  if(response.data.state == 'ok'){
 		            	  $('#dataTable').bootstrapTable('refresh');
-		            	  UIkit.notification({
-	            			    message: '添加成功！',
-	            			    pos: 'bottom-center',
-	            			    timeout: 3000
-	            			});
+		            	  alertify.success("添加成功");
 	            	  }else{
-	            		  
-	            		  var message = response.data.message
-	            		  UIkit.notification({
-	            			    message: '添加失败!&nbsp;&nbsp;&nbsp;原因：' + message,
-	            			    pos: 'bottom-center',
-	            			    timeout: 3000
-	            			});
-	            		
-	            		  
+	            		  var message = response.data.message;
+	            		  var str = "添加失败 " + message;
+	            		  alertify.error(str);
 	            	  }
-	            	  UIkit.modal($("#modal-overflow")).hide();
-	            	//清除隐藏元素表达内容的关键
+	            	  $('#myModal').modal('hide');
+	            	  //清除隐藏元素表达内容的关键
 	            	  formReset(formName);
             		  form.data('bootstrapValidator').resetForm();
 	            	  
@@ -206,6 +193,14 @@
 	        }
 	    });
 	});
+	
+	$('#myModal').on('hide.bs.modal', function (e) {
+		var formName = 'form';
+		var form = $("form");
+		//清除隐藏元素表达内容的关键
+		formReset(formName);
+		form.data('bootstrapValidator').resetForm();
+	})
 </script>
 <script>
 	//操作
@@ -213,36 +208,26 @@
 		var _open = "";
 		var _delete = "";
 		var _show = "";
-		_show ='<a class="btn btn-link btn-xs text-danger" href="/admin/course/base?couCode='+ row.course_code +'" >查看所有班级 </a>';
-		_open ='<a class="btn btn-link btn-xs text-primary" href="/admin/course/open?couCode='+ row.course_code + '">开班</a>';
-		_delete ='<a class="btn btn-link btn-xs text-danger" href="javascript:void(0);" onclick="couTypeDelete('+ row.id +')">删除 </a>';
-		
-		return _show+ _open+ _delete;
+		_show = '<a class="btn btn-xs text-primary" href="/admin/course/base?couCode='
+				+ row.course_code + '" >查看所有班级 </a>';
+		_open = '<a class="btn btn-xs text-primary" href="/admin/course/open?couCode='
+				+ row.course_code + '">开班</a>';
+		_delete = '<a class="btn btn-xs text-danger" href="javascript:void(0);" onclick="couTypeDelete('
+				+ row.id + ')">删除 </a>';
+
+		return _show + _open + _delete;
 	}
-	function couTypeDelete(id){
-		UIkit.modal.confirm('确定删除吗？',{
-			labels:{
-				ok:'确定',
-				cancel:'取消'
-			}
-		}).then(function() {
+	function couTypeDelete(id) {
+		alertify.confirm("确定要删除该条记录吗？", function() {
 			axios.post('/course/couTypeDelete',id)
             .then(function (response) {
           	  if(response.data.state == 'ok'){
-	            	  $('#dataTable').bootstrapTable('refresh');
-	            	  UIkit.notification({
-          			    message: '删除成功！',
-          			    pos: 'bottom-center',
-          			    timeout: 3000
-          			});
+	            $('#dataTable').bootstrapTable('refresh');
+	            alertify.success("删除成功");
           	  }else{
-          		UIkit.notification({
-      			    message: '删除失败！',
-      			    pos: 'bottom-center',
-      			    timeout: 3000
-      			});
+          		alertify.error("删除失败");
           	  }
-          	  UIkit.modal($("#modal-overflow")).hide();
+          	$('#myModal').modal('hide');
           	//清除隐藏元素表达内容的关键
           	  formReset(formName);
       		  form.data('bootstrapValidator').resetForm();
@@ -251,10 +236,9 @@
             .catch(function (error) {
               console.log(error);
             });
-		}, function () {
-		    console.log('取消')
+		}, function() {
+			//alertify.error("取消");
 		});
-		
 	}
 </script>
 </html>

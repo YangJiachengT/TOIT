@@ -3,11 +3,11 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
  
-  <groupId>com.how2java</groupId>
-  <artifactId>springboot</artifactId>
+  <groupId>com.liu.toit</groupId>
+  <artifactId>TOIT</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>springboot</name>
-  <description>springboot</description>
+  <name>TOIT</name>
+  <description>TOIT_PJ</description>
    
     <parent>
         <groupId>org.springframework.boot</groupId>

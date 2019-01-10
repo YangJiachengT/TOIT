@@ -7,9 +7,12 @@
  * @copyright   (c) 2013 - 2014 Nguyen Huu Phuoc
  * @license     MIT
  */
-
+.bv-form .has-error input{
+	border-color: #dc3545
+}
 .bv-form .help-block {
     margin-bottom: 0;
+    color: #a94442;
 }
 .nav-tabs li.bv-tab-success > a {
     color: #3c763d;

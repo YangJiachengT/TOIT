@@ -66,6 +66,9 @@
 <script src="/assets/js/Plugin/asrange.js"></script>
 <script src="/assets/js/Plugin/ionrangeslider.js"></script>
 <script src="/assets/plugin/bootstrap-table/bootstrap-table.js"></script>
+
+<script src="/js/bootstrapvalidator/bootstrapValidator.min.js"></script>
+<script src="/js/axios/axios.js"></script>
 <script
 	src="/assets/plugin/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
 <script>

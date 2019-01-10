@@ -20,7 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import cn.liu.mapper.CouJudgeQuestionMapper;
 import cn.liu.mapper.CouMultiQuestionMapper;
+import cn.liu.po.CouJudgeQuestion;
 import cn.liu.po.CouMultiQuestion;
 import cn.liu.util.DbUtils;
 import cn.liu.util.bean.Record;
@@ -31,6 +33,8 @@ public class ExamServiceImpl {
 
 	@Autowired
 	CouMultiQuestionMapper couMultiQuestionMapper;
+	@Autowired
+	CouJudgeQuestionMapper couJudgeQuestionMapper;
 
 	/*---------------------------选择题---------------------------*/
 
@@ -43,7 +47,33 @@ public class ExamServiceImpl {
 	
 	/**
 	 * 
-	 * @Description: 选择题导入    
+	 * @Description: 单个添加    
+	 * @author liu
+	 * @version 2019 年 01 月 10 日  09:52:19 
+	 * @param couMultiQuestion
+	 * @return
+	 */
+	public Ret addCouMultiQuestion(CouMultiQuestion couMultiQuestion) {
+		int result = couMultiQuestionMapper.insert(couMultiQuestion);
+		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	
+	/**
+	 * 
+	 * @Description: 删除    
+	 * @author liu
+	 * @version 2019 年 01 月 10 日  09:52:36 
+	 * @param id
+	 * @return
+	 */
+	public Ret deleteCouMultiQuestion(String id) {
+		int result = couMultiQuestionMapper.deleteByPrimaryKey(Integer.parseInt(id));
+		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	
+	/**
+	 * 
+	 * @Description: 选择题批量导入    
 	 * @author liu
 	 * @version 2019 年 01 月 09 日  14:06:44 
 	 * @param file
@@ -93,6 +123,89 @@ public class ExamServiceImpl {
 				entity.setLevel((int) ((Cell) list.get(9)).getNumericCellValue());
 				
 				couMultiQuestionMapper.insert(entity);
+			}
+			
+			return Ret.ok().setMessage(error);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return Ret.fail();
+	}
+	
+	/*---------------------------判断题---------------------------*/
+	
+	public List<Record> getCouJudgeQuestionList() {
+		StringBuilder sql = new StringBuilder();
+		sql.append(" SELECT * ");
+		sql.append("  FROM cou_judge_question ");
+		return DbUtils.find(sql.toString());
+	}
+	
+	/**
+	 * 
+	 * @Description: 单个添加    
+	 * @author liu
+	 * @version 2019 年 01 月 10 日  09:51:40 
+	 * @param couJudgeQuestion
+	 * @return
+	 */
+	public Ret addCouJudgeQuestion(CouJudgeQuestion couJudgeQuestion) {
+		int result = couJudgeQuestionMapper.insert(couJudgeQuestion);
+		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	
+	/**
+	 * 
+	 * @Description: 删除    
+	 * @author liu
+	 * @version 2019 年 01 月 10 日  09:51:57 
+	 * @param id
+	 * @return
+	 */
+	public Ret deleteCouJudgeQuestion(String id) {
+		int result = couJudgeQuestionMapper.deleteByPrimaryKey(Integer.parseInt(id));
+		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	/**
+	 * 
+	 * @Description: 判断题批量导入    
+	 * @author liu
+	 * @version 2019 年 01 月 10 日  09:21:16 
+	 * @param file
+	 * @param request
+	 * @return
+	 */
+	public Ret importCouJudgeQuestion(MultipartFile file,HttpServletRequest request) {
+		if(file.isEmpty()) {
+			return Ret.fail().setMessage("文件为空");
+		}
+		try {
+			List<List<Object>> data = getDataByExcel(3,file.getInputStream(), file.getOriginalFilename());
+			
+			List<CouJudgeQuestion> error = new ArrayList<>();
+			for (List<Object> list : data) {
+				CouJudgeQuestion entity = new CouJudgeQuestion();
+				//课程编号
+				entity.setCourseCode(2018121402);
+				//题目
+				entity.setQuestion(String.valueOf(list.get(0)));
+				//答案
+				String answer = String.valueOf(list.get(7));
+ 				entity.setAnswer(answer);
+ 				String regEx = "^[TtFf]+";
+ 				Pattern pattern = Pattern.compile(regEx);
+ 				Matcher matcher = pattern.matcher(answer);
+ 				boolean rs = matcher.matches();
+				if(rs == true) {
+					error.add(entity);
+					continue;
+				}
+				//阶段
+				entity.setStage((int) ((Cell) list.get(8)).getNumericCellValue());
+				//难度
+				entity.setLevel((int) ((Cell) list.get(9)).getNumericCellValue());
+				
+				couJudgeQuestionMapper.insert(entity);
 			}
 			
 			return Ret.ok().setMessage(error);

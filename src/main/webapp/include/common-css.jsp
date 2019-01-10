@@ -5,9 +5,10 @@
 %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png" /> 
-<link rel="shortcut icon" href="/assets/images/favicon.ico" /> 
+<!-- <link rel="shortcut icon" href="/assets/images/favicon.ico" />  -->
 <!-- Stylesheets --> 
 <link rel="stylesheet" href="/assets/css/bootstrap.min.css?v=4.0.1" /> 
+<link rel="stylesheet" href="/assets/css/page/bootstrap-extend.min.css" /> 
 <link rel="stylesheet" href="/assets/css/page/bootstrap-extend.min.css" /> 
 <link rel="stylesheet" href="/assets/css/page/site.min.css" /> 
 <!-- Plugins --> 
@@ -34,6 +35,7 @@
 <!-- self -->
 <link rel="stylesheet" href="/assets/css/style.css?v=1.0.0" /> 
 <link rel="stylesheet" href="/assets/vendor/toastr/toastr.css?v=0.8.1">
+<link rel="stylesheet" href="/css/bootstrapvalidator/bootstrapvalidator.css" /> 
 <!-- 图片插件 -->
 <link rel="stylesheet" href="/assets/plugin/imageviewer/imageviewer.min.css?v=1.0">
 
