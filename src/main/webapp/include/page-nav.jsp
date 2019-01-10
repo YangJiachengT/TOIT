@@ -49,7 +49,8 @@
 							class="icon wb-power" aria-hidden="true"></i> Logout</a>
 					</div></li>
 				<li class="nav-item hidden-float">
-					<div class="navbar-brand navbar-brand-center site-gridmenu-toggle">
+					<div class="navbar-brand navbar-brand-center site-gridmenu-toggle"
+						style="margin-left: 0">
 						<span class="navbar-brand-text hidden-xs-down"><%=((User) session.getAttribute(AppConstant.SESSION_USER)).getUserRealName()%></span>
 					</div>
 				</li>
@@ -113,6 +114,11 @@
 						class="site-menu-icon wb-table" aria-hidden="true"></i>课程管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
 						href="/admin/course/type"> <span class="site-menu-title">课程</span>
+					</a></li>
+					<li class="site-menu-category"><i
+						class="site-menu-icon wb-table" aria-hidden="true"></i>考试管理</li>
+					<li class="site-menu-item is-shown"><a class="animsition-link"
+						href="/admin/course/question"> <span class="site-menu-title">题库批量导入</span>
 					</a></li>
 				</ul>
 			</div>

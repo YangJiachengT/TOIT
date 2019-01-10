@@ -45,6 +45,11 @@ public class Admin {
 		mv.addObject("F_ACTIVE", "course");
 		return mv;
 	}
+	@RequestMapping("course/question")
+	public ModelAndView coursequestion(ModelAndView mv) {
+		mv.setViewName("admin/course/cou_question");
+		return mv;
+	}
 	
 	@RequestMapping("user")
 	public ModelAndView adminUser(ModelAndView mv) {
