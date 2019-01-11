@@ -90,8 +90,8 @@
 						</div>
 					</div></li>
 				<li class="nav-item hidden-float"><a
-					class="nav-link icon wb-power" href="#" role="button"> <span
-						class="sr-only"></span>
+					class="nav-link icon wb-power" href="/admin/logout" role="button">
+						<span class="sr-only"></span>
 				</a></li>
 			</ul>
 			<!-- End Navbar Toolbar Right -->
@@ -108,7 +108,7 @@
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-dashboard" aria-hidden="true"></i>首页</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
-						href="#"> <span class="site-menu-title">首页</span>
+						href="/admin/home"> <span class="site-menu-title">首页</span>
 					</a></li>
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-table" aria-hidden="true"></i>课程管理</li>
@@ -116,9 +116,19 @@
 						href="/admin/course/type"> <span class="site-menu-title">课程</span>
 					</a></li>
 					<li class="site-menu-category"><i
-						class="site-menu-icon wb-table" aria-hidden="true"></i>考试管理</li>
+						class="site-menu-icon wb-clipboard" aria-hidden="true"></i>考试管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
 						href="/admin/course/question"> <span class="site-menu-title">题库批量导入</span>
+					</a></li>
+					<li class="site-menu-category"><i
+						class="site-menu-icon wb-users" aria-hidden="true"></i>用户管理</li>
+					<li class="site-menu-item is-shown"><a class="animsition-link"
+						href="/admin/user"> <span class="site-menu-title">系统用户</span>
+					</a></li>
+					<li class="site-menu-category"><i
+						class="site-menu-icon wb-settings" aria-hidden="true"></i>系统</li>
+					<li class="site-menu-item is-shown"><a class="animsition-link"
+						href="/admin/course/question"> <span class="site-menu-title">日志</span>
 					</a></li>
 				</ul>
 			</div>
