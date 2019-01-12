@@ -54,7 +54,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 		if(user != null) {
 			return true;
 		}else {
-			response.sendRedirect("/html/interceptor.html");//测试用，稍后修改为登录页 /system/login
+			response.sendRedirect("/admin/login");//测试用，稍后修改为登录页 /system/login
 			return false;
 		}
 	}

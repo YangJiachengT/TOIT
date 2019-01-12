@@ -62,6 +62,11 @@ public class Admin {
 		mv.addObject("F_ACTIVE", "user");
 		return mv;
 	}
+	@RequestMapping("log")
+	public ModelAndView adminLog(ModelAndView mv) {
+		mv.setViewName("admin/log");
+		return mv;
+	}
 	
 	@RequestMapping("login")
 	public ModelAndView login(ModelAndView mv) {

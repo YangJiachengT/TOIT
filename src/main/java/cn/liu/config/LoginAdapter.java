@@ -21,13 +21,13 @@ public class LoginAdapter extends WebMvcConfigurerAdapter {
     	
     	//addPathPatterns 用于添加拦截规则
         //excludePathPatterns 用于排除拦截
-        /*registry.addInterceptor(loginInterceptor)
+        registry.addInterceptor(loginInterceptor)
         		.addPathPatterns("/**")
-        		//.excludePathPatterns("/error")
-        		.excludePathPatterns("/system/login")
-        		.excludePathPatterns("/system/register")
-        		.excludePathPatterns("/upload/page"); //测试用，稍后注释
+        		.excludePathPatterns("/error")
+        		.excludePathPatterns("/admin/login")
+        		.excludePathPatterns("/login");
+        		//.excludePathPatterns("/upload/page"); //测试用，稍后注释
         		//.excludePathPatterns("/upload/doUpload"); //测试用，稍后注释
-        super.addInterceptors(registry);*/
+        super.addInterceptors(registry);
     }
 }

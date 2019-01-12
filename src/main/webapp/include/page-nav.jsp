@@ -128,7 +128,7 @@
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-settings" aria-hidden="true"></i>系统</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"
-						href="/admin/course/question"> <span class="site-menu-title">日志</span>
+						href="/admin/log"> <span class="site-menu-title">日志</span>
 					</a></li>
 				</ul>
 			</div>
