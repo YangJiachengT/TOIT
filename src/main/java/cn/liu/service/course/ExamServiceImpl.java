@@ -190,20 +190,20 @@ public class ExamServiceImpl {
 				//题目
 				entity.setQuestion(String.valueOf(list.get(0)));
 				//答案
-				String answer = String.valueOf(list.get(7));
+				String answer = String.valueOf(list.get(1));
  				entity.setAnswer(answer);
- 				String regEx = "^[TtFf]+";
+ 				/*String regEx = "^[TtFf]+";
  				Pattern pattern = Pattern.compile(regEx);
  				Matcher matcher = pattern.matcher(answer);
  				boolean rs = matcher.matches();
 				if(rs == true) {
 					error.add(entity);
 					continue;
-				}
+				}*/
 				//阶段
-				entity.setStage((int) ((Cell) list.get(8)).getNumericCellValue());
+				entity.setStage((int) ((Cell) list.get(2)).getNumericCellValue());
 				//难度
-				entity.setLevel((int) ((Cell) list.get(9)).getNumericCellValue());
+				entity.setLevel((int) ((Cell) list.get(3)).getNumericCellValue());
 				
 				couJudgeQuestionMapper.insert(entity);
 			}

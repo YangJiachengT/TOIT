@@ -64,8 +64,7 @@
 									enctype="multipart/form-data">
 									<input type="file" name="file" id="multiQuestion"
 										data-plugin="dropify" data-default-file="">
-									<button type="submit" class="btn btn-success my-10 w-200"
-										data-toggle="button">
+									<button type="submit" class="btn btn-success my-10 w-200">
 										<i class="icon wb-upload text" aria-hidden="true"></i> <span
 											class="text">上传</span>
 									</button>
@@ -77,10 +76,9 @@
 									href="/exam/couJudgeQuestion/export" target="_self">点击下载导入模板文件</a>
 								<form action="/exam/couJudgeQuestion/import" method="post"
 									enctype="multipart/form-data">
-									<input type="file" id="judgeQuestion" data-plugin="dropify"
-										data-default-file="">
-									<button type="submit" class="btn btn-success my-10 w-200"
-										data-toggle="button">
+									<input type="file" name="file" id="judgeQuestion"
+										data-plugin="dropify" data-default-file="">
+									<button type="submit" class="btn btn-success my-10 w-200">
 										<i class="icon wb-upload text" aria-hidden="true"></i> <span
 											class="text">上传</span>
 									</button>
