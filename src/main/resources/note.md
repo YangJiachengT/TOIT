@@ -95,7 +95,8 @@ ORDER BY g.id ASC
 |     3    |      2        |西安欧亚学院                         |
 +----------+---------------+------------------------------------+
 
-
+Mysql使用count()函数计算两个不同条件的值
+select count(case when id>4 then id end),count(case when id=1 then id end ) from test;
 ----------------------------------------------------------------------------------
 导出代码
 public void export() throws Exception {
