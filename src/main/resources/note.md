@@ -97,6 +97,10 @@ ORDER BY g.id ASC
 
 Mysql使用count()函数计算两个不同条件的值
 select count(case when id>4 then id end),count(case when id=1 then id end ) from test;
+
+bootstrap-markdown 调用
+<textarea name="content" data-provide="markdown" data-iconlibrary="fa" rows="10" id="editor"></textarea>
+$('#editor').data('markdown').parseContent();
 ----------------------------------------------------------------------------------
 导出代码
 public void export() throws Exception {

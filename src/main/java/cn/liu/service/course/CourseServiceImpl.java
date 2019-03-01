@@ -12,7 +12,6 @@ import cn.liu.mapper.CouPlaceMapper;
 import cn.liu.mapper.CouStageMapper;
 import cn.liu.mapper.CouTypeMapper;
 import cn.liu.po.CouBase;
-import cn.liu.po.CouExamExample;
 import cn.liu.po.CouPlace;
 import cn.liu.po.CouStage;
 import cn.liu.po.CouStageExample;
