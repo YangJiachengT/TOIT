@@ -52,6 +52,11 @@ public class Admin {
 		mv.setViewName("admin/course/cou_question");
 		return mv;
 	}
+	@RequestMapping("course/question/select")
+	public ModelAndView coursequestionselect(ModelAndView mv) {
+		mv.setViewName("admin/course/cou_question_select");
+		return mv;
+	}
 	
 	@RequestMapping("user")
 	public ModelAndView adminUser(ModelAndView mv) {

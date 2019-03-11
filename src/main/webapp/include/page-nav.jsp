@@ -120,6 +120,9 @@
 					<li class="site-menu-item is-shown"><a class="animsition-link"
 						href="/admin/course/question"> <span class="site-menu-title">题库批量导入</span>
 					</a></li>
+					<li class="site-menu-item is-shown"><a class="animsition-link"
+						href="/admin/course/question/select"> <span class="site-menu-title">题库查询</span>
+					</a></li>
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-users" aria-hidden="true"></i>用户管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"

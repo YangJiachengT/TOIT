@@ -13,12 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import cn.liu.service.course.ExamServiceImpl;
 import cn.liu.util.DateUtil;
+import cn.liu.util.aop.annotation.OperationLogDetail;
+import cn.liu.util.aop.enums.OperationType;
 import cn.liu.util.bean.Record;
 import cn.liu.util.bean.Ret;
 
@@ -41,6 +45,10 @@ public class ExamController {
 	public List<Record> couMultiQuestionList() {
 		return examServiceImpl.getCouMultiQuestionList();
 	}
+	@RequestMapping("couMultiQuestionDelete")
+	public Ret couMultiQuestionDelete(@RequestBody String id){
+		return examServiceImpl.deleteCouMultiQuestion(id);
+	}
 	
 	/**
 	 * 
@@ -50,8 +58,15 @@ public class ExamController {
 	 * @return
 	 */
 	@RequestMapping("couMultiQuestion/import")
-	public Ret couMultiQuestionImport(MultipartFile file,HttpServletRequest request) {
-		return examServiceImpl.importCouMultiQuestion(file, request);
+	public ModelAndView couMultiQuestionImport(MultipartFile file,HttpServletRequest request,ModelAndView mv) {
+		Ret ret = new Ret();
+		ret = examServiceImpl.importCouMultiQuestion(file, request);
+		if(ret.isOk()) {
+			mv.setViewName("admin/course/cou_question_select");
+		}else {
+			mv.setViewName("admin/course/cou_question");
+		}
+		return mv;
 	}
 	
 	/**
@@ -104,7 +119,10 @@ public class ExamController {
 	public List<Record> couJudgeQuestionList() {
 		return examServiceImpl.getCouJudgeQuestionList();
 	}
-	
+	@RequestMapping("couJudgeQuestionDelete")
+	public Ret couJudgeQuestionDelete(@RequestBody String id){
+		return examServiceImpl.deleteCouJudgeQuestion(id);
+	}
 	/**
 	 * 
 	 * @Description: 判断题题库导入    
@@ -115,8 +133,15 @@ public class ExamController {
 	 * @return
 	 */
 	@RequestMapping("couJudgeQuestion/import")
-	public Ret couJudgeQuestionImport(MultipartFile file,HttpServletRequest request) {
-		return examServiceImpl.importCouJudgeQuestion(file, request);
+	public ModelAndView couJudgeQuestionImport(MultipartFile file,HttpServletRequest request,ModelAndView mv) {
+		Ret ret = new Ret();
+		ret = examServiceImpl.importCouJudgeQuestion(file, request);
+		if(ret.isOk()) {
+			mv.setViewName("admin/course/cou_question_select");
+		}else {
+			mv.setViewName("admin/course/cou_question");
+		}
+		return mv;
 	}
 	
 	/**

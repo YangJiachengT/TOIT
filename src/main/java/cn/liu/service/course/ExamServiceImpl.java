@@ -25,6 +25,8 @@ import cn.liu.mapper.CouMultiQuestionMapper;
 import cn.liu.po.CouJudgeQuestion;
 import cn.liu.po.CouMultiQuestion;
 import cn.liu.util.DbUtils;
+import cn.liu.util.aop.annotation.OperationLogDetail;
+import cn.liu.util.aop.enums.OperationType;
 import cn.liu.util.bean.Record;
 import cn.liu.util.bean.Ret;
 
