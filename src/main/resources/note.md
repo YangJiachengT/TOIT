@@ -99,7 +99,14 @@ Mysql使用count()函数计算两个不同条件的值
 select count(case when id>4 then id end),count(case when id=1 then id end ) from test;
 
 bootstrap-markdown 调用
+<link rel="stylesheet" type="text/css" media="screen" href="../bootstrap-markdown/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../bootstrap-markdown/bootstrap-markdown.css" />
+<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <textarea name="content" data-provide="markdown" data-iconlibrary="fa" rows="10" id="editor"></textarea>
+<script src="../bootstrap-markdown/jquery-3.3.1.min.js"></script>
+<script src="../bootstrap-markdown/bootstrap.js"></script>
+<script src="../bootstrap-markdown/bootstrap-markdown.js"></script>
+<script src="../bootstrap-markdown/marked.js"></script>
 $('#editor').data('markdown').parseContent();
 ----------------------------------------------------------------------------------
 导出代码
