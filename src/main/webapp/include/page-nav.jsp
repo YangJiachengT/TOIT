@@ -115,6 +115,9 @@
 					<li class="site-menu-item is-shown"><a class="animsition-link"
 						href="/admin/course/type"> <span class="site-menu-title">课程</span>
 					</a></li>
+					<!-- <li class="site-menu-item is-shown"><a class="animsition-link"
+						href="/admin/course/stage"> <span class="site-menu-title">课程阶段管理</span>
+					</a></li> -->
 					<li class="site-menu-category"><i
 						class="site-menu-icon wb-clipboard" aria-hidden="true"></i>考试管理</li>
 					<li class="site-menu-item is-shown"><a class="animsition-link"

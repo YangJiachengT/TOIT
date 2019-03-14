@@ -82,7 +82,7 @@ body {
 				<h3 class="font-size-24">登录</h3>
 				<p></p>
 
-				<form method="post" action="/login">
+				<form><!--  method="post" action="/login" -->
 					<div class="alert alert-danger display-hide" id="alert"
 						style="display: none;">
 						<button aria-label="Close" data-dismiss="alert" class="close"
@@ -101,21 +101,21 @@ body {
 							type="password" class="form-control" id="password"
 							name="password" placeholder="密码">
 					</div>
-					<div class="form-group clearfix">
+					<!-- <div class="form-group clearfix">
 						<div
 							class="checkbox-custom checkbox-inline checkbox-primary float-left">
 							<input type="checkbox" id="rememberMe" name="rememberMe">
 							<label for="rememberMe">记住我</label>
 						</div>
 						<a class="float-right" href="forgot-password.html">忘记密码?</a>
-					</div>
-					<button type="submit" class="btn btn-primary btn-block">登录</button>
+					</div> -->
+					<span class="btn btn-primary btn-block" onclick="login()">登录</span>
 					<span class="btn btn-primary btn-block" onclick="loginAsDev()">开发者模式</span>
 				</form>
 
-				<p>
+				<!-- <p>
 					没有账号? <a href="register-v2.html">注册</a>
-				</p>
+				</p> -->
 
 				<footer class="page-copyright">
 					<p>学生素质测评系统</p>
@@ -165,6 +165,7 @@ body {
 <script src="/assets/js/Config.js"></script>
 <script src="/assets/js/Section/Menubar.js"></script>
 <script src="/assets/js/Section/Sidebar.js?v=4.0.1"></script>
+<script src="/js/axios/axios.js"></script>
 
 <!-- Config -->
 <script src="/assets/js/config/tour.js"></script>
@@ -186,17 +187,24 @@ body {
 </script>
 <script>
 	$(document).ready(function() {
-		if ("${Message}") {
-			$("#alert").css("display", "block");
-			$("#alertMessage").html("${Message}")
-		} else {
-			$("#alert").css("display", "none");
-			$("#alertMessage").html("")
-		}
-
 	});
+	function login(){
+		var username = $("#username").val();
+		var password = $("#password").val();
+		axios.get("/login?username="+username+"&password="+password)
+		.then(function (response) {
+			if(response.data.state == 'ok'){
+				window.location.href = '/admin/home';
+			}else{
+				$("#alert").css("display", "block");
+				$("#alertMessage").html(response.data.message)
+			}
+		})
+	}
 	function loginAsDev() {
-		window.location.href = "/login?username=0001&password=123456";
+		$("#username").val("0001");
+		$("#password").val("123456");
+		login();
 	}
 </script>
 </html>

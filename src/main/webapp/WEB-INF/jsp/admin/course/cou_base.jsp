@@ -18,8 +18,8 @@
 	<div class="page">
 		<div class="page-header">
 			<ol class="breadcrumb">
-				<li class="breadcrumb-item"><a href="javascript:void(0)">一级</a></li>
-				<li class="breadcrumb-item active">二级</li>
+				<li class="breadcrumb-item"><a href="javascript:void(0)">首页</a></li>
+				<li class="breadcrumb-item active">课程</li>
 			</ol>
 		</div>
 
