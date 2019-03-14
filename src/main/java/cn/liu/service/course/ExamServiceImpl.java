@@ -3,6 +3,7 @@ package cn.liu.service.course;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -25,6 +26,7 @@ import cn.liu.mapper.CouMultiQuestionMapper;
 import cn.liu.po.CouJudgeQuestion;
 import cn.liu.po.CouMultiQuestion;
 import cn.liu.util.DbUtils;
+import cn.liu.util.TypeUtils;
 import cn.liu.util.aop.annotation.OperationLogDetail;
 import cn.liu.util.aop.enums.OperationType;
 import cn.liu.util.bean.Record;
@@ -46,7 +48,9 @@ public class ExamServiceImpl {
 		sql.append("  FROM cou_multi_question ");
 		return DbUtils.find(sql.toString());
 	}
-	
+	public CouMultiQuestion findMultiById(Integer id) {
+		return couMultiQuestionMapper.selectByPrimaryKey(id);
+	}
 	/**
 	 * 
 	 * @Description: 单个添加    
@@ -71,6 +75,41 @@ public class ExamServiceImpl {
 	public Ret deleteCouMultiQuestion(String id) {
 		int result = couMultiQuestionMapper.deleteByPrimaryKey(Integer.parseInt(id));
 		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	/**
+	 * @Description: 保存编辑的题目   
+	 * @author liu
+	 * @version 2019 年 03 月 14 日  09:47:43 
+	 * @param id
+	 * @return
+	 */
+	public Ret updateCouMultiQuestion(HashMap<String,Object> map) {
+		int id = TypeUtils.objToInt(map.get("multiId"));
+		String question = (String) map.get("question");
+		String optionA = (String) map.get("option_a");
+		String optionB = (String) map.get("option_b");
+		String optionC = (String) map.get("option_c");
+		String optionD = (String) map.get("option_d");
+		String optionE = (String) map.get("option_e");
+		String optionF = (String) map.get("option_f");
+		String answer = (String) map.get("answer");
+		int stage = TypeUtils.objToInt(map.get("stage"));
+		int level = TypeUtils.objToInt(map.get("level"));
+		
+		CouMultiQuestion record = couMultiQuestionMapper.selectByPrimaryKey(id);
+		record.setId(id);
+		record.setQuestion(question);
+		record.setOptionA(optionA);
+		record.setOptionB(optionB);
+		record.setOptionC(optionC);
+		record.setOptionD(optionD);
+		record.setOptionE(optionE);
+		record.setOptionF(optionF);
+		record.setAnswer(answer);
+		record.setStage(stage);
+		record.setLevel(level);
+		couMultiQuestionMapper.updateByPrimaryKey(record);
+		return Ret.ok();
 	}
 	
 	/**
@@ -140,9 +179,15 @@ public class ExamServiceImpl {
 		StringBuilder sql = new StringBuilder();
 		sql.append(" SELECT * ");
 		sql.append("  FROM cou_judge_question ");
-		return DbUtils.find(sql.toString());
+		List<Record> list = DbUtils.find(sql.toString());
+		for (Record record : list) {
+			record.put("answer_str", record.get("answer").equals("T") ? "正确" : "错误");
+		}
+		return list;
 	}
-	
+	public CouJudgeQuestion findJudgeById(Integer id) {
+		return couJudgeQuestionMapper.selectByPrimaryKey(id);
+	}
 	/**
 	 * 
 	 * @Description: 单个添加    
@@ -167,6 +212,29 @@ public class ExamServiceImpl {
 	public Ret deleteCouJudgeQuestion(String id) {
 		int result = couJudgeQuestionMapper.deleteByPrimaryKey(Integer.parseInt(id));
 		return result > 0 ? Ret.ok() : Ret.fail();
+	}
+	/**
+	 * @Description: 保存编辑的题目   
+	 * @author liu
+	 * @version 2019 年 03 月 14 日  09:47:43 
+	 * @param id
+	 * @return
+	 */
+	public Ret updateCouJudgeQuestion(HashMap<String,Object> map) {
+		int id = TypeUtils.objToInt(map.get("judgeId"));
+		String question = (String) map.get("question");
+		String answer = (String) map.get("answer");
+		int stage = TypeUtils.objToInt(map.get("stage"));
+		int level = TypeUtils.objToInt(map.get("level"));
+		
+		CouJudgeQuestion record = couJudgeQuestionMapper.selectByPrimaryKey(id);
+		record.setId(id);
+		record.setQuestion(question);
+		record.setAnswer(answer);
+		record.setStage(stage);
+		record.setLevel(level);
+		couJudgeQuestionMapper.updateByPrimaryKey(record);
+		return Ret.ok();
 	}
 	/**
 	 * 

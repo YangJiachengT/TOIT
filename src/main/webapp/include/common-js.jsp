@@ -77,6 +77,7 @@
    var Site = window.Site;
    $(document).ready(function(){
    	Site.run();
+   	alertify.delay(1000);
    });
  })(document, window, jQuery);
 </script>

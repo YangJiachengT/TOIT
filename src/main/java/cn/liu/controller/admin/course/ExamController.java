@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.OutputStream;
 import java.text.MessageFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,10 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.liu.po.CouJudgeQuestion;
+import cn.liu.po.CouMultiQuestion;
 import cn.liu.service.course.ExamServiceImpl;
 import cn.liu.util.DateUtil;
-import cn.liu.util.aop.annotation.OperationLogDetail;
-import cn.liu.util.aop.enums.OperationType;
+import cn.liu.util.TypeUtils;
 import cn.liu.util.bean.Record;
 import cn.liu.util.bean.Ret;
 
@@ -45,9 +47,17 @@ public class ExamController {
 	public List<Record> couMultiQuestionList() {
 		return examServiceImpl.getCouMultiQuestionList();
 	}
+	@RequestMapping("findMultiById")
+	public CouMultiQuestion findMultiById(@RequestBody String id) {
+		return examServiceImpl.findMultiById(TypeUtils.strToInt(id));
+	}
 	@RequestMapping("couMultiQuestionDelete")
 	public Ret couMultiQuestionDelete(@RequestBody String id){
 		return examServiceImpl.deleteCouMultiQuestion(id);
+	}
+	@RequestMapping("couMultiQuestionUpdate")
+	public Ret couMultiQuestionUpdate(@RequestBody HashMap<String,Object> map){
+		return examServiceImpl.updateCouMultiQuestion(map);
 	}
 	
 	/**
@@ -119,9 +129,17 @@ public class ExamController {
 	public List<Record> couJudgeQuestionList() {
 		return examServiceImpl.getCouJudgeQuestionList();
 	}
+	@RequestMapping("findJudgeById")
+	public CouJudgeQuestion findJudgeById(@RequestBody String id) {
+		return examServiceImpl.findJudgeById(TypeUtils.strToInt(id));
+	}
 	@RequestMapping("couJudgeQuestionDelete")
 	public Ret couJudgeQuestionDelete(@RequestBody String id){
 		return examServiceImpl.deleteCouJudgeQuestion(id);
+	}
+	@RequestMapping("couJudgeQuestionUpdate")
+	public Ret couJudgeQuestionUpdate(@RequestBody HashMap<String,Object> map){
+		return examServiceImpl.updateCouJudgeQuestion(map);
 	}
 	/**
 	 * 
